@@ -6,14 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_running_movie.*
 import org.sairaa.moivetreasure.Model.MovieT
 
 
-class RunningMovieFragment(movieintheaters: List<MovieT>) : Fragment() {
-
-    private var movieDataList: List<MovieT>? = movieintheaters
+class RunningMovieFragment(private var movieDataList: List<MovieT>) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +25,7 @@ class RunningMovieFragment(movieintheaters: List<MovieT>) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerViewR.apply {
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = GridLayoutManager(activity,2)
             adapter = MovieListAdapter(activity)
             (adapter as MovieListAdapter).updateList(movieDataList)
 

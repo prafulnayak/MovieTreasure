@@ -8,14 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sairaa.moivetreasure.Model.MovieT
 
 public class MovieListAdapter(
-    activity: FragmentActivity?
+    private val context: FragmentActivity?
 ) : RecyclerView.Adapter<MyViewHolder>() {
 
     var movieList:List<MovieT>? = null
     private var listener: MovieAdapterCallback? = null
-
-    private val context: FragmentActivity? = activity
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

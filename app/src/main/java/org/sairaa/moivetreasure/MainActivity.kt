@@ -16,18 +16,21 @@ import retrofit2.Response
 import java.util.logging.Logger
 import retrofit2.Callback
 
-class MainActivity : AppCompatActivity(),
-MovieListAdapter.MovieAdapterCallback{
+class MainActivity : AppCompatActivity(),MovieListAdapter.MovieAdapterCallback{
 
     val BASE_URL = "https://gist.githubusercontent.com/SkyTreasure/df5c94f75f64fc9af0c8b87e431011bb/raw/ee22cb6b0a76b0cc06e57d77b47fb7234e12fc90/movies.json/"
 
     private var movieX: MovieData? = null
 
+    companion object {
+        private const val MOVIE_KEY = "sairaa.org.mainactivity.movie.key"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val progressT: TextView = findViewById(R.id.progressText)
         val progressB: ProgressBar = findViewById(R.id.progressBar)
         progressB.visibility = ProgressBar.VISIBLE
@@ -56,6 +59,8 @@ MovieListAdapter.MovieAdapterCallback{
 
         })
     }
+
+
 
 
 
