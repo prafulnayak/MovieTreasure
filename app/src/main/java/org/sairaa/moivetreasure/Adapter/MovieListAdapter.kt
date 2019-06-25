@@ -1,4 +1,4 @@
-package org.sairaa.moivetreasure
+package org.sairaa.moivetreasure.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import org.sairaa.moivetreasure.Model.MovieT
+import org.sairaa.moivetreasure.R
 
 public class MovieListAdapter(
     private val context: FragmentActivity?

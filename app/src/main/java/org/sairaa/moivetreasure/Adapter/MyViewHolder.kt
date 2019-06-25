@@ -1,4 +1,4 @@
-package org.sairaa.moivetreasure
+package org.sairaa.moivetreasure.Adapter
 
 import android.view.View
 import android.widget.ImageView
@@ -8,22 +8,20 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import org.sairaa.moivetreasure.Model.MovieT
+import org.sairaa.moivetreasure.R
 
 class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    var mAdapterCallBack: MovieListAdapter.MovieAdapterCallback?=null
-    val titleT:TextView = itemView.findViewById(R.id.textViewitem);
-    val ratingT:TextView = itemView.findViewById(R.id.textViewRating);
-    val imageM:ImageView = itemView.findViewById(R.id.imageView);
+    private var mAdapterCallBack: MovieListAdapter.MovieAdapterCallback?=null
+    private val titleT:TextView = itemView.findViewById(R.id.textViewitem);
+    private val ratingT:TextView = itemView.findViewById(R.id.textViewRating);
+    private val imageM:ImageView = itemView.findViewById(R.id.imageView);
 
-    var circularProgressDrawable: CircularProgressDrawable = CircularProgressDrawable(itemView.context)  //= new CircularProgressDrawable(mCtx);
+    private var circularProgressDrawable: CircularProgressDrawable = CircularProgressDrawable(itemView.context)
 
-//    circularProgressDrawable..setStrokeWidth(5f);
-//    circularProgressDrawable.setCenterRadius(30f);
-//    circularProgressDrawable.start();
 
     fun set(movie: MovieT) {
-        titleT.setText(movie.title)
-        ratingT.setText(movie.imdbRating)
+        titleT.text = movie.title
+        ratingT.text = movie.imdbRating
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()

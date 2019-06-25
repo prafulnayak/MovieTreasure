@@ -1,19 +1,19 @@
-package org.sairaa.moivetreasure
+package org.sairaa.moivetreasure.Adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import org.sairaa.moivetreasure.Fragment.IndianMovieFragemnt
+import org.sairaa.moivetreasure.Fragment.MovieFragment
+import org.sairaa.moivetreasure.Fragment.RunningMovieFragment
 import org.sairaa.moivetreasure.Model.MovieData
 
 class MyPageAdapter(
     fragmentManager: FragmentManager,
-    movieY: MovieData?
+    private val movieX: MovieData?
 ):FragmentPagerAdapter(fragmentManager) {
 
-    private val movieX = movieY
-
     override fun getItem(position: Int): Fragment {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         return when (position) {
             0 -> MovieFragment(movieX!!.comingsoon)
             1 -> RunningMovieFragment(movieX!!.movieintheaters)
@@ -24,7 +24,7 @@ class MyPageAdapter(
     }
 
     override fun getCount(): Int {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
         return 3
     }
 
@@ -36,8 +36,5 @@ class MyPageAdapter(
                 return "Indian Movie"
             }
         }
-    }
-
-    fun addFragment(fm:Fragment,title:String){
     }
 }
